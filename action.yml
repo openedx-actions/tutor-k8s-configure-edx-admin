@@ -1,4 +1,4 @@
-name:  Tutor k8s create edx admin user
+name: Open edX Tutor k8s create edx admin user
 description: Github Action to create an admin user for Open edX LMS
 branding:
   icon: 'cloud'

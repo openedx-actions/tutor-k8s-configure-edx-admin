@@ -1,0 +1,23 @@
+name:  Tutor k8s create edx admin user
+description: Github Action to create an admin user for Open edX LMS
+branding:
+  icon: 'cloud'
+  color: 'orange'
+inputs:
+  namespace:
+    description: 'The Kubernetes namesapce to which the Open edX platform environment will be deployed. Example: openedx-prod'
+    required: true
+    type: string
+runs:
+  using: "composite"
+  steps:
+    #----------------------------------------------------------------------
+    # returns bash environment commands of the form:
+    #     export ADMIN_PASSWORD=some-password
+    #     export ADMIN_USER=admin
+    #----------------------------------------------------------------------
+    - name: Create admin user
+      shell: bash
+      run:  |-
+        $(kubectl get secret admin-edx -n ${{ inputs.namespace }}  -o json | jq  '.data | map_values(@base64d)' |   jq -r 'keys[] as $k | "export \($k|ascii_upcase)=\(.[$k])"')
+        tutor k8s createuser --password "$ADMIN_PASSWORD" --staff --superuser "$ADMIN_USER" admin@mrionline.com

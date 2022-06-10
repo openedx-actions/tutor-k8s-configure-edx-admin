@@ -16,8 +16,14 @@ runs:
     #     export ADMIN_PASSWORD=some-password
     #     export ADMIN_USER=admin
     #----------------------------------------------------------------------
+    - name: fetch secret
+      id: get-secret
+      uses: openedx-actions/tutor-k8s-get-secret@v0.0.2
+      with:
+        eks-namespace: ${{ inputs.namespace }}
+        eks-secret-name: admin-edx
+
     - name: Create admin user
+      id: create-user
       shell: bash
-      run:  |-
-        $(kubectl get secret admin-edx -n ${{ inputs.namespace }}  -o json | jq  '.data | map_values(@base64d)' |   jq -r 'keys[] as $k | "export \($k|ascii_upcase)=\(.[$k])"')
-        tutor k8s createuser --password "$ADMIN_PASSWORD" --staff --superuser "$ADMIN_USER" admin@edx.com
+      run:  tutor k8s createuser --password "$ADMIN_PASSWORD" --staff --superuser "$ADMIN_USER" admin@edx.com

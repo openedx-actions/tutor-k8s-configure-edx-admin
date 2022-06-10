@@ -48,5 +48,5 @@ jobs:
 
       # This action.
       - name: Create admin user
-        uses: openedx-actions/tutor-k8s-configure-edx-admin@v0.0.1
+        uses: openedx-actions/tutor-k8s-configure-edx-admin@v0.0.4
 ```

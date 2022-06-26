@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## Version v1.0.0 (2022-06-26)
+
+General production release.
+
 ## Version v0.0.7 (2022-06-26)
 
 Added ADMIN_EMAIL as an input parameter

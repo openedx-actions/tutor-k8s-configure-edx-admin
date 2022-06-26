@@ -9,7 +9,7 @@
 
 # tutor-k8s-configure-edx-secret
 
-Github Action to create an admin user for Open edX LMS
+Github Action to create an admin user for Open edX LMS.
 
 
 ## Usage:
@@ -38,7 +38,7 @@ jobs:
 
       # install and configure tutor and kubectl
       - name: Initialize environment
-        uses: openedx-actions/tutor-k8s-init@v0.0.1
+        uses: openedx-actions/tutor-k8s-init@v0.0.13
         with:
           namespace: openedx-prod
 

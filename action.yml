@@ -15,6 +15,7 @@ runs:
     # returns bash environment commands of the form:
     #     export ADMIN_PASSWORD=some-password
     #     export ADMIN_USER=admin
+    #     export ADMIN_EMAIL=admin@yourdomain.edu
     #----------------------------------------------------------------------
     - name: fetch secret
       id: get-secret
@@ -26,4 +27,4 @@ runs:
     - name: Create admin user
       id: create-user
       shell: bash
-      run:  tutor k8s createuser --password "$ADMIN_PASSWORD" --staff --superuser "$ADMIN_USER" admin@edx.com
+      run:  tutor k8s createuser --password "$ADMIN_PASSWORD" --staff --superuser "$ADMIN_USER" "$ADMIN_EMAIL"

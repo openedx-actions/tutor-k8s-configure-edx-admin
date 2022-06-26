@@ -9,7 +9,7 @@
 
 # tutor-k8s-configure-edx-secret
 
-Github Action to create an admin user for Open edX LMS
+Github Action to create an admin user for Open edX LMS.
 
 
 ## Usage:

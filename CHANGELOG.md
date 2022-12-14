@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## Version v1.0.1 (2022-12-14)
+
+* refactor to tutor k8s do createuser
+
 ## Version v1.0.0 (2022-06-26)
 
 General production release.

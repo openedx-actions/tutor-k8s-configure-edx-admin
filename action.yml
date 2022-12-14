@@ -27,4 +27,4 @@ runs:
     - name: Create admin user
       id: create-user
       shell: bash
-      run:  tutor k8s createuser --password "$TUTOR_ADMIN_PASSWORD" --staff --superuser "$TUTOR_ADMIN_USER" "$TUTOR_ADMIN_EMAIL"
+      run:  tutor k8s do createuser --password "$TUTOR_ADMIN_PASSWORD" --staff --superuser "$TUTOR_ADMIN_USER" "$TUTOR_ADMIN_EMAIL"

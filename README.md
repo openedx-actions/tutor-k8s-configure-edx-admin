@@ -26,7 +26,7 @@ jobs:
 
     steps:
       # required antecedent
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3.5.0
 
       # required antecedent
       - name: Configure AWS credentials
@@ -48,5 +48,5 @@ jobs:
 
       # This action.
       - name: Create admin user
-        uses: openedx-actions/tutor-k8s-configure-edx-admin@v1.0.1
+        uses: openedx-actions/tutor-k8s-configure-edx-admin@v1.0.2
 ```
